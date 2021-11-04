@@ -104,8 +104,8 @@ namespace Samples.ViewModel
                 $"VerticalAccuracy: {(location.VerticalAccuracy.HasValue ? location.VerticalAccuracy.Value.ToString() : notAvailable)}\n" +
                 $"Heading: {(location.Course.HasValue ? location.Course.Value.ToString() : notAvailable)}\n" +
                 $"Speed: {(location.Speed.HasValue ? location.Speed.Value.ToString() : notAvailable)}\n" +
-                $"Date (UTC): {location.Timestamp:d}\n" +
-                $"Time (UTC): {location.Timestamp:T}\n" +
+                $"Date (Utc): {location.Timestamp:d}\n" +
+                $"Time (Utc): {location.Timestamp:T}\n" +
                 $"Moking Provider: {location.IsFromMockProvider}";
         }
 
