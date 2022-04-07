@@ -5,7 +5,7 @@ using Android.OS;
 
 namespace Xamarin.Essentials
 {
-    [Activity(ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize)]
+    [Activity(ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize, Exported = true)]
     class WebAuthenticatorIntermediateActivity : Activity
     {
         const string launchedExtra = "launched";
