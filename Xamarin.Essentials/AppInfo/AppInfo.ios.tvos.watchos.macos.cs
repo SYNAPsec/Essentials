@@ -26,6 +26,19 @@ namespace Xamarin.Essentials
 #if __IOS__ || __TVOS__
         static async void PlatformShowSettingsUI()
             => await Launcher.OpenAsync(UIApplication.OpenSettingsUrlString);
+#elif __MACOS__
+        static void PlatformShowSettingsUI()
+        {
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+// Ignore obsolete for the time being. Will be updated in a future release.
+#pragma warning disable CS0618 // Type or member is obsolete
+                var prefsApp = ScriptingBridge.SBApplication.FromBundleIdentifier("com.apple.systempreferences");
+#pragma warning restore CS0618 // Type or member is obsolete
+                prefsApp.SendMode = ScriptingBridge.AESendMode.NoReply;
+                prefsApp.Activate();
+            });
+        }
 #else
         static void PlatformShowSettingsUI() =>
             throw new FeatureNotSupportedException();
